@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Users"
 include ':app'
+include ':base'
+include ':core'
+
+
