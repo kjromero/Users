@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimen_small_elevation">4dp</dimen>
+    <dimen name="dimen_small_elevation">2dp</dimen>
     <dimen name="dimen_small">8dp</dimen>
     <dimen name="dimen_medium">16dp</dimen>
 

@@ -31,6 +31,12 @@ fun UsersRoute(
     uiState?.let {
         UsersScreen(
             uiState = it,
+            onPostsClick =  { userId ->
+                viewModel.getPostsByUser(userId)
+            },
+            onBackClick = {
+                viewModel.clearPosts()
+            }
         )
     }
 }
@@ -38,6 +44,8 @@ fun UsersRoute(
 @Composable
 internal fun UsersScreen(
     uiState: UsersUiState,
+    onPostsClick: (Int) -> Unit,
+    onBackClick: () -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -58,10 +66,17 @@ internal fun UsersScreen(
             modifier = Modifier
                 .padding(it)
         ) {
-            if (uiState.users.isNotEmpty()) {
+            if (uiState.posts.isNotEmpty()) {
+                PostsContent(
+                    uiState = uiState,
+                    snackbarHostState = snackbarHostState,
+                    onBackClick = onBackClick
+                )
+            } else if (uiState.users.isNotEmpty()) {
                 UsersListContent(
                     uiState = uiState,
                     snackbarHostState = snackbarHostState,
+                    onPostsClick = onPostsClick
                 )
             } else {
                 UsersNotContent(
@@ -76,9 +91,10 @@ internal fun UsersScreen(
 private fun UsersListContent(
     uiState: UsersUiState,
     snackbarHostState: SnackbarHostState,
+    onPostsClick: (Int) -> Unit
 ) {
     if (uiState.isError) {
-        val errorMessage = "error"//stringResource(R.string.rockets_error_refreshing)
+        val errorMessage = stringResource(R.string.error_message)
 
         LaunchedEffect(snackbarHostState) {
             snackbarHostState.showSnackbar(
@@ -89,7 +105,30 @@ private fun UsersListContent(
 
     UsersListContent(
         usersList = uiState.users,
-        //onRocketClick = { onRocketClick(it) }
+        onPostsClick = { onPostsClick(it) }
+    )
+}
+
+@Composable
+private fun PostsContent(
+    uiState: UsersUiState,
+    snackbarHostState: SnackbarHostState,
+    onBackClick: () -> Unit
+) {
+    if (uiState.isError) {
+        val errorMessage = stringResource(R.string.error_message)
+
+        LaunchedEffect(snackbarHostState) {
+            snackbarHostState.showSnackbar(
+                message = errorMessage
+            )
+        }
+    }
+
+    PostsListContent(
+        usersList = uiState.users,
+        postList = uiState.posts,
+        onBackClick = { onBackClick() }
     )
 }
 

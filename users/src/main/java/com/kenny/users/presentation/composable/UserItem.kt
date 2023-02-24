@@ -1,5 +1,6 @@
 package com.kenny.users.presentation.composable
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,10 +25,10 @@ import com.kenny.users.R
 import com.kenny.users.entities.data.User
 import com.kenny.users.presentation.utils.EMPTY_STRING
 
-
 @Composable
 fun UserItem(
     user: User,
+    onPostClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -86,9 +87,9 @@ fun UserItem(
                     .fillMaxSize()
                     .padding(
                         vertical = dimensionResource(id = R.dimen.dimen_small)
-                    ),
+                    )
+                    .clickable { onPostClick() },
             )
-
         }
     }
 }
