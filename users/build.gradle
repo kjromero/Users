@@ -67,9 +67,9 @@ dependencies {
 
     //Room
     kapt "org.xerial:sqlite-jdbc:3.36.0" // Only for computer with M1 CPU
-    implementation "androidx.room:room-ktx:2.5.0"
     implementation "androidx.room:room-runtime:2.5.0"
     kapt "androidx.room:room-compiler:2.5.0"
+    implementation "androidx.room:room-ktx:2.5.0"
 
     //Compose
     implementation 'androidx.activity:activity-ktx:1.6.1'
