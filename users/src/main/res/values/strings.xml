@@ -3,5 +3,6 @@
     <string name="title">Prueba de Ingreso</string>
     <string name="show_posts">VER PUBLICACIONES</string>
 
+    <string name="search_user">Buscar usuario</string>
     <string name="error_message">Error, intentalo mas tarde</string>
 </resources>
