@@ -12,13 +12,13 @@ import io.reactivex.rxjava3.core.Single
 interface UsersDao {
 
     @Query("SELECT * FROM users")
-    fun getAllUsers() : Single<List<User>>
+    fun getAllUsers() : List<User>
 
     @Query("SELECT * FROM users WHERE id = :id")
     fun getUser(id: Int): Single<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(users: List<User>): Completable
+    fun insertAll(users: List<User>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User): Completable
