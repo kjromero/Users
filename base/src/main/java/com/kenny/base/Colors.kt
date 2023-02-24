@@ -2,11 +2,11 @@ package com.kenny.base
 
 import androidx.compose.ui.graphics.Color
 
-val Primary = Color(0xFFFFd600)
+val Primary = Color(0xFF088A29)
 val PrimaryVariant = Color(0x32FFE899)
 val Secondary = Color(0xFF06038D)
 val SecondaryVariant = Color(0xFF6A68BB)
-val Accent = Color(0xFF3835A4)
+val Accent = Color(0xFF0B6121)
 val Background = Color(0xFFFFFFFF)
 val Surface = Color(0xFFFFFFFF)
 val Error = Color(0xFFEE417F)
