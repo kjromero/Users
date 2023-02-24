@@ -39,6 +39,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.1"
     }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {
@@ -71,6 +77,11 @@ dependencies {
     implementation 'androidx.compose.runtime:runtime-livedata:1.3.1'
     implementation 'androidx.compose.material:material'
     implementation 'androidx.compose.foundation:foundation'
+
+    //Tests
+    implementation "io.mockk:mockk:1.12.4"
+    implementation "org.jetbrains.kotlin:kotlin-test:1.6.21"
+    implementation "org.jetbrains.kotlin:kotlin-test-junit5:1.6.21"
 
 }
 
