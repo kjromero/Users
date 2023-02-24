@@ -3,7 +3,6 @@ package com.kenny.users.usescases
 import com.kenny.users.domain.repositories.UsersRepositoryImpl
 import com.kenny.users.domain.usescases.GetPostsByUserUseCase
 import com.kenny.users.entities.data.Post
-import com.kenny.users.entities.data.User
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension

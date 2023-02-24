@@ -8,7 +8,6 @@ import com.kenny.users.entities.data.Post
 import com.kenny.users.entities.data.User
 import com.kenny.users.entities.interfaces.UsersRepository
 import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
 class UsersRepositoryImpl @Inject constructor(
