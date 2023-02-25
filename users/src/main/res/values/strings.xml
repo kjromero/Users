@@ -5,4 +5,6 @@
 
     <string name="search_user">Buscar usuario</string>
     <string name="error_message">Error, intentalo mas tarde</string>
+
+    <string name="empty_state">List is empty</string>
 </resources>
