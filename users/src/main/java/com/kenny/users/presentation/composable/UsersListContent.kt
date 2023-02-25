@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import com.kenny.users.entities.data.User
+import com.kenny.users.presentation.utils.EMPTY_STRING
 
 
 @Composable
@@ -17,21 +18,26 @@ fun UsersListContent(
     usersList: List<User>,
     onPostsClick: (Int) -> Unit
 ) {
-    val textState = remember { mutableStateOf(TextFieldValue("")) }
+    val textState = remember { mutableStateOf(TextFieldValue(EMPTY_STRING)) }
     Column( 
         modifier = Modifier.fillMaxSize()
     ) {
         SearchView(state = textState)
-        LazyColumn {
-            itemsIndexed(
-                items = usersList.filter { user -> user.name.lowercase().contains(textState.value.text.lowercase()) },
-                key = { _, user -> user.id }
-            ) { _, item ->
-                UserItem(
-                    user = item,
-                    onPostClick = { onPostsClick(item.id) }
-                )
+        val filterList = usersList.filter { user -> user.name.lowercase().contains(textState.value.text.lowercase()) }
+        if (filterList.isNotEmpty()) {
+            LazyColumn {
+                itemsIndexed(
+                    items = filterList,
+                    key = { _, user -> user.id }
+                ) { _, item ->
+                    UserItem(
+                        user = item,
+                        onPostClick = { onPostsClick(item.id) }
+                    )
+                }
             }
+        } else {
+            UserListEmptyState()
         }
     }
 }
