@@ -23,4 +23,4 @@ I implement MVVM pattern design
 
 ## Output 
 
-![image](https://user-images.githubusercontent.com/11460880/221276031-e2bbf6bd-644f-46fc-885b-03be4fea5e9c.png)
+![Screenshot 2023-03-06 at 12 01 13 PM](https://user-images.githubusercontent.com/11460880/223179436-b9a06f6f-a4f4-4b23-9ef4-1178de7460b1.png)
